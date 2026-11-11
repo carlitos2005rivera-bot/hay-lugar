@@ -49,7 +49,7 @@ function crearMesas(cantidad, desde = 0) {
 /**
  * Cafeterías con las que arranca la página.
  * Se pueden definir con la variable CAFETERIAS, por ejemplo:
- *   CAFETERIAS="Cafetería Central:12;Cafetería Norte:8"
+ *   CAFETERIAS="Cafetería de admin:18;Otra cafetería:10"
  * Esto sirve en hostings gratuitos (como Render) donde los archivos se borran al reiniciar.
  */
 function cafeteriasIniciales() {
@@ -60,10 +60,7 @@ function cafeteriasIniciales() {
     if (nombre && cantidad >= 1 && cantidad <= MAX_MESAS) lista.push({ nombre: nombre.slice(0, 50), cantidad });
   }
   if (lista.length) return lista.slice(0, MAX_CAFETERIAS);
-  return [
-    { nombre: 'Cafetería Central', cantidad: 12 },
-    { nombre: 'Cafetería Norte', cantidad: 8 },
-  ];
+  return [{ nombre: 'Cafetería de admin', cantidad: 18 }];
 }
 
 function estadoInicial() {

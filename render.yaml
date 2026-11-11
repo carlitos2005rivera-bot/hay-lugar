@@ -13,4 +13,4 @@ services:
         sync: false
       # Cafeterías y número de mesas: "Nombre:mesas;Nombre:mesas"
       - key: CAFETERIAS
-        value: "Cafetería Central:12;Cafetería Norte:8"
+        value: "Cafetería de admin:18"
