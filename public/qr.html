@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Código QR · ¿Hay lugar?</title>
+  <link rel="icon" href="/icono.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/estilos.css">
+  <link rel="stylesheet" href="/css/qr.css">
+  <script type="module" src="/js/qr.js"></script>
+</head>
+<body class="pagina-qr">
+  <!-- Controles (no salen al imprimir) -->
+  <header class="barra no-imprimir">
+    <div class="barra-contenido">
+      <a class="marca" href="/">
+        <img src="/icono.svg" alt="" width="30" height="30">
+        <div>
+          <strong>¿Hay lugar?</strong>
+          <span>Código QR para imprimir</span>
+        </div>
+      </a>
+    </div>
+  </header>
+
+  <main class="contenedor qr-contenedor">
+    <section class="tarjeta qr-controles no-imprimir">
+      <label class="campo">
+        <span>Dirección a la que lleva el QR</span>
+        <input class="entrada" id="direccion" type="url" spellcheck="false" autocomplete="off">
+      </label>
+      <p class="aviso-local" id="aviso-local" hidden>
+        Estás usando la página desde tu computadora, así que este QR solo funciona en celulares
+        conectados <b>al mismo Wi‑Fi</b>. Cuando la página esté publicada en internet, abre
+        <b>/qr</b> desde la dirección pública y el QR se arma solo con esa dirección.
+      </p>
+      <div class="botones">
+        <button class="boton primario" id="imprimir" type="button">Imprimir cartel</button>
+        <button class="boton" id="descargar" type="button">Descargar QR (imagen)</button>
+      </div>
+    </section>
+
+    <!-- Cartel -->
+    <article class="cartel" id="cartel">
+      <div class="cartel-marca">
+        <img src="/icono.svg" alt="" width="44" height="44">
+        <span>¿Hay lugar?</span>
+      </div>
+      <h1>¿Hay mesas libres en la cafetería?</h1>
+      <p class="cartel-sub">Escanea con tu celular y revisa antes de venir.</p>
+      <div class="cartel-qr" id="qr" role="img" aria-label="Código QR"></div>
+      <p class="cartel-url" id="url-texto"></p>
+      <p class="cartel-pie">Se actualiza en tiempo real · Sin registrarte</p>
+    </article>
+  </main>
+</body>
+</html>

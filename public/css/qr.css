@@ -1,0 +1,107 @@
+/* Página del código QR y cartel para imprimir */
+.qr-contenedor {
+  max-width: 720px;
+}
+.qr-controles {
+  display: grid;
+  gap: 14px;
+}
+.aviso-local {
+  background: var(--medio-suave);
+  color: var(--medio-texto);
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+/* El cartel siempre es blanco con texto oscuro, como se verá impreso. */
+.cartel {
+  background: #fff;
+  color: #1c1a17;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 40px 24px;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 14px;
+}
+.cartel-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+.cartel h1 {
+  font-size: clamp(1.7rem, 6vw, 2.6rem);
+  letter-spacing: -0.03em;
+  max-width: 15ch;
+}
+.cartel-sub {
+  font-size: 1.15rem;
+  color: #5d5850;
+}
+.cartel-qr {
+  width: min(100%, 340px);
+  aspect-ratio: 1;
+  margin: 6px 0;
+}
+.cartel-qr svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cartel-url {
+  font-weight: 700;
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+.cartel-pie {
+  color: #6f6a60;
+  font-size: 0.95rem;
+}
+
+@media print {
+  @page {
+    size: letter portrait;
+    margin: 14mm;
+  }
+  body {
+    background: #fff;
+  }
+  .no-imprimir {
+    display: none !important;
+  }
+  .contenedor {
+    padding: 0;
+    max-width: none;
+  }
+  .cartel {
+    border: 0;
+    box-shadow: none;
+    padding: 12mm 0 0;
+    gap: 7mm;
+    break-inside: avoid;
+  }
+  .cartel-marca {
+    font-size: 18pt;
+  }
+  .cartel h1 {
+    font-size: 36pt;
+    max-width: 16ch;
+  }
+  .cartel-sub {
+    font-size: 17pt;
+  }
+  .cartel-qr {
+    width: 110mm;
+  }
+  .cartel-url {
+    font-size: 15pt;
+  }
+  .cartel-pie {
+    font-size: 12pt;
+  }
+}

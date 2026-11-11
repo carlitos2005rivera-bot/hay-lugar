@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>¿Hay lugar? · Cafeterías</title>
+  <meta name="description" content="Mesas libres en las cafeterías de la universidad, en tiempo real.">
+  <link rel="icon" href="/icono.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script type="module" src="/js/alumnos.js"></script>
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-contenido">
+      <a class="marca" href="/">
+        <img src="/icono.svg" alt="" width="30" height="30">
+        <div>
+          <strong>¿Hay lugar?</strong>
+          <span>Cafeterías de la universidad</span>
+        </div>
+      </a>
+      <span class="en-vivo" id="en-vivo" data-estado="conectando">
+        <span class="punto"></span><span class="texto">Conectando…</span>
+      </span>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="intro">
+      <h1>¿Hay mesas libres?</h1>
+      <p class="suave">Revisa antes de ir. El personal de cada cafetería marca las mesas y aquí se ve al instante, sin recargar.</p>
+    </section>
+
+    <section aria-label="Cafeterías">
+      <div class="cafeterias" id="cafeterias">
+        <p class="cargando">Cargando cafeterías…</p>
+      </div>
+    </section>
+
+    <section class="tarjeta" id="detalle" hidden aria-labelledby="detalle-titulo">
+      <div class="seccion-titulo">
+        <div>
+          <h2 id="detalle-titulo">Mesas</h2>
+          <p class="suave" id="detalle-subtitulo"></p>
+        </div>
+        <div class="leyenda" aria-hidden="true">
+          <span><i class="punto-leyenda libre"></i>Libre</span>
+          <span><i class="punto-leyenda ocupada"></i>Ocupada</span>
+        </div>
+      </div>
+      <div class="mesas" id="mesas"></div>
+    </section>
+
+    <p class="solo-lector" id="anuncio" aria-live="polite"></p>
+  </main>
+
+  <footer class="pie">
+    <span>La información la actualiza el personal de cada cafetería.</span>
+    <a href="/panel">Soy personal de cafetería →</a>
+  </footer>
+</body>
+</html>

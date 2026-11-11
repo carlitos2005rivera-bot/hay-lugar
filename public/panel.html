@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panel del personal · ¿Hay lugar?</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/icono.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/estilos.css">
+  <script type="module" src="/js/panel.js"></script>
+</head>
+<body class="panel">
+  <!-- Entrada con PIN -->
+  <section class="login" id="vista-login">
+    <form class="tarjeta login-tarjeta" id="form-login">
+      <img src="/icono.svg" alt="" width="44" height="44">
+      <div>
+        <h1>Panel del personal</h1>
+        <p class="suave">Escribe el PIN para marcar las mesas libres y ocupadas.</p>
+      </div>
+      <label class="campo">
+        <span>PIN</span>
+        <input class="entrada entrada-pin" id="pin" type="password" inputmode="numeric" autocomplete="current-password" required>
+      </label>
+      <button class="boton primario" type="submit">Entrar</button>
+      <p class="mensaje-error" id="login-error" role="alert"></p>
+      <a class="suave" href="/">← Ver la página de alumnos</a>
+    </form>
+  </section>
+
+  <!-- Panel -->
+  <div id="vista-app" hidden>
+    <header class="barra">
+      <div class="barra-contenido">
+        <a class="marca" href="/panel">
+          <img src="/icono.svg" alt="" width="30" height="30">
+          <div>
+            <strong>¿Hay lugar?</strong>
+            <span>Panel del personal</span>
+          </div>
+        </a>
+        <span class="en-vivo" id="en-vivo" data-estado="conectando">
+          <span class="punto"></span><span class="texto">Conectando…</span>
+        </span>
+        <button class="boton fantasma chico" id="salir" type="button">Salir</button>
+      </div>
+      <nav class="pestanas" aria-label="Secciones del panel">
+        <button type="button" data-pestana="mesas" aria-current="page">Mesas</button>
+        <button type="button" data-pestana="configurar">Configurar</button>
+        <a href="/qr" target="_blank" rel="noopener">Código QR ↗</a>
+      </nav>
+    </header>
+
+    <main class="contenedor">
+      <!-- Marcar mesas -->
+      <section id="pestana-mesas">
+        <div class="pila">
+          <fieldset class="opciones" id="selector-cafeteria">
+            <legend class="solo-lector">Elige tu cafetería</legend>
+          </fieldset>
+
+          <div class="tarjeta control" id="control">
+            <div class="control-cabeza">
+              <div>
+                <h1 id="control-nombre">Cafetería</h1>
+                <p class="control-resumen">
+                  <span class="chip chip-nivel" id="control-chip"></span>
+                  <span class="suave" id="control-numeros"></span>
+                </p>
+              </div>
+              <div class="botones">
+                <button class="boton libre" id="todo-libre" type="button">✓ Todo libre</button>
+                <button class="boton peligro" id="todo-ocupado" type="button">✕ Todo ocupado</button>
+              </div>
+            </div>
+            <p class="suave">Toca una mesa para cambiarla entre <b>libre</b> y <b>ocupada</b>. Los alumnos lo ven al instante.</p>
+            <div class="mesas" id="mesas-control"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Configurar cafeterías -->
+      <section id="pestana-configurar" hidden>
+        <div class="pila">
+          <div class="config-encabezado">
+            <h1>Cafeterías y mesas</h1>
+            <p class="suave">Agrega las cafeterías y cuántas mesas tiene cada una. Las mesas se numeran solas (Mesa 1, Mesa 2…).</p>
+          </div>
+          <p class="nota" id="config-nota" hidden>
+            La página está en el plan gratuito de Render: si el servidor se reinicia, regresa a las cafeterías
+            de la variable <b>CAFETERIAS</b>. Para que un cambio sea permanente, cámbialo también ahí
+            (Render → tu servicio → Environment).
+          </p>
+          <div class="lista-config" id="config-lista"></div>
+          <div>
+            <button class="boton" id="config-agregar" type="button">+ Agregar cafetería</button>
+          </div>
+          <div class="guardar-fijo">
+            <span class="suave" id="config-aviso">Sin cambios</span>
+            <button class="boton" id="config-descartar" type="button" disabled>Descartar</button>
+            <button class="boton primario" id="config-guardar" type="button" disabled>Guardar cambios</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="aviso-flotante" id="aviso" role="status" hidden></div>
+</body>
+</html>

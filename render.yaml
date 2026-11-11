@@ -1,0 +1,16 @@
+# Configuración para publicar la página en Render (https://render.com), plan gratuito.
+# En Render: New → Blueprint → elige este repositorio. Render lee este archivo solo.
+services:
+  - type: web
+    name: hay-lugar
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      # Render te pedirá escribir el PIN del panel al crear el servicio.
+      - key: PIN_PANEL
+        sync: false
+      # Cafeterías y número de mesas: "Nombre:mesas;Nombre:mesas"
+      - key: CAFETERIAS
+        value: "Cafetería Central:12;Cafetería Norte:8"

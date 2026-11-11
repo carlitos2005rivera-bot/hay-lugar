@@ -1,0 +1,13 @@
+{
+  "name": "hay-lugar-cafeteria",
+  "version": "1.0.0",
+  "description": "Página web que muestra en tiempo real si hay mesas libres en las cafeterías de la universidad.",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
